@@ -20,7 +20,35 @@
 
 Find the sum of all the multiples of 3 or 5 below 1000.</p><hr>
 
-<p>Problem 2: Write a function that takes in an array of numbers, and then returns an object which contains key values of the even and the odd numbers</p>
+<p>Problem 2: Write a function that takes in an array of numbers, and then returns an object which contains key values of the even and the odd numbers</p><hr>
+<p>Problem 3: Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. For example:
+
+  var list = [true, 0, undefined, 1, 10, 12];
+
+  would return
+
+  var object = {
+  "boolean":  1,
+  "number": 4,
+  "undefined": 1,
+  "null": 0,
+  "string":0
+  }</p>
+
+  <p>Problem 4: Write a function that takes in a list of words, and returns an object that tells you how many times each letter showed up.
+
+So soemthing like this
+
+var data = ['hat', 'cat', 'dog'] => 
+
+{
+  'a' : 2,
+  'h' : 1,
+  't' : 2,
+  c' : 2,
+  'd' : 1,
+  'g' : 1
+} </p>
 
 
     </div>
@@ -62,7 +90,12 @@ function findNumbers(number) {
   var list = [1,2,5,10,12,45,6,14];
 
   function evenOdds(list) {
-    var object = {"Evens": [], "Odds": []};
+    //Object to store information, the key value is a blank array
+    var object = {
+      "Evens": [],
+      "Odds": []
+  };
+  //Loop to go through the data in the list array. If that number divided by 2 has no remainder- its an even number and should be pushed into the object.
     for (i = 0; i < list.length; i++) {
       if (list[i] % 2 === 0) {
         object["Evens"].push(list[i]);
@@ -87,6 +120,53 @@ function findNumbers(number) {
   "string":0
   }
   */
+
+  var list2 = [undefined, 10, 14, null, "Web Development", "Your Name", true, 13, false, undefined]
+
+  function dataOccurence(list) {
+    var object = {
+
+    }
+  }
+
+  /*Write a function that takes in a list of words, and returns an object that tells you how many times each letter showed up.
+
+So soemthing like this
+
+var data = ['hat', 'cat', 'dog'] => 
+
+{
+  'a' : 2,
+  'h' : 1,
+  't' : 2,
+  c' : 2,
+  'd' : 1,
+  'g' : 1
+} */
+
+/*Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. An example of the sentence:
+
+var string = "Names Age Names Age Number ID Names";*/
+
+var string = "Names Age Names Age Number ID Names";
+
+function stringOccurence(string) { 
+//First we put everything to lower case 
+var lowerString = string.toLowerCase(); 
+//Blank object to store words
+var wordCount = {};
+//Then we split the strings into an array of values to make them easier to manipulate
+var wordArray = lowerString.split(" "); /*Now we check if each word is defined in the array, if it isnt, push it in, and then when it loops through and finds a number already there, increases count by one */ 
+for (var i = 0; i < wordArray.length; i++) {
+  if (wordCount[wordArray[i]] === undefined) {
+    wordCount[wordArray[i]] = 1;
+  } else {
+    wordCount[wordArray[i]]++
+  }
+}
+return wordCount;
+};
+
 
   
    </script>
