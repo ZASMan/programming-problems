@@ -13,7 +13,7 @@
 
       <div class="container">
       <center>
-        <h1>Programming Problems Euler Questions</h1>
+        <h1>Programming Problems </h1>
         <h4>Here are my attempts at some general algorithim problems. Right click and hit 'view source code' to see my solutions. Let me know if you think I can improve on them!</h4>
       </center>
       <p>Problem 1: If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -33,11 +33,11 @@ Find the sum of all the multiples of 3 or 5 below 1000.</p><hr>
   "undefined": 1,
   "null": 0,
   "string":0
-  }</p>
+  }</p><hr>
 
   <p>Problem 4: Write a function that takes in a list of words, and returns an object that tells you how many times each letter showed up.
 
-So soemthing like this
+So something like this
 
 var data = ['hat', 'cat', 'dog'] => 
 
@@ -49,6 +49,10 @@ var data = ['hat', 'cat', 'dog'] =>
   'd' : 1,
   'g' : 1
 } </p>
+
+<p>Problem 5: Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. An example of the sentence:
+
+var string = "Names Age Names Age Number ID Names";</p>
 
 
     </div>
@@ -123,10 +127,28 @@ function findNumbers(number) {
 
   var list2 = [undefined, 10, 14, null, "Web Development", "Your Name", true, 13, false, undefined]
 
-  function dataOccurence(list) {
+  function dataOccurence(list2) {
     var object = {
-
+      "boolean": 0,
+      "number": 0,
+      "null": 0,
+      "string": 0,
+      "undefined": 0,
+    };
+    for (var i = 0; i < list.length; i++) {
+      if (typeof list[i] === "boolean") {
+        object["boolean"]++;
+      } else if (typeof list[i] === "number") {
+        object["number"]++;
+      } else if (typeof list[i] === "null") {
+        object["null"]++;
+      } else if (typeof list[i] === "string") {
+        object["string"]++;
+      } else if (typeof list[i] === "undefined") {
+        object["undefined"]++;
+      }
     }
+    return object;
   }
 
   /*Write a function that takes in a list of words, and returns an object that tells you how many times each letter showed up.
