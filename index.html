@@ -48,7 +48,7 @@ var data = ['hat', 'cat', 'dog'] =>
   c' : 2,
   'd' : 1,
   'g' : 1
-} </p>
+} </p><hr>
 
 <p>Problem 5: Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. An example of the sentence:
 
@@ -153,7 +153,7 @@ function findNumbers(number) {
 
   /*Write a function that takes in a list of words, and returns an object that tells you how many times each letter showed up.
 
-So soemthing like this
+So something like this
 
 var data = ['hat', 'cat', 'dog'] becomes
 
@@ -170,25 +170,20 @@ var data = ['hat', 'cat', 'dog'];
 
 function letterOccurence(data) {
   //Object to store the answer
-  var object = {};
-  //Next we convert the array into a string like "hat,cat,dog"
-  var dataString = lowData.toString();
-    //Next we put everything to lower case
-  var lowData = data.toLowerCase();
-  //We need to convert that string into an array of individual letters, and then loop through it and push it into the object. The algorithim will be if the index (the letter) is undefined, push it to the object with a value of 1. If it is defined already, increase that value by one.
-  var dataCharArray = dataString.split('');
-  for (i = 0; i < dataCharArray.length; i++) {
-    if (object["dataCharArray[i]"] === "undefined") {
-      object["dataCharArray[i]"] = 1;
+  var result = {};
+  //Now we need to loop through the characters of each element in the array. If the character is undefined, push it to the object and put it at one. Otherwise, increase it by one.
+  for (var i = 0; i < data.length; i++) {
+    for (var j=0; j < data[i].length; j++) {
+      var letter = data[i][j];
+      if (result[letter]) {
+        result[letter] = result[letter] + 1;
     } else {
-      object["dataCharArray[i]"]++;
+      result[letter] = 1;
     }
   }
-  return object;
 }
-
-/*All wrong ^^ I need to fix this. I was trying to convert array to string. So what I need to do is convert everything to lower case, then I need to loop through the characters of each index of the array and check if it is defined in the object or not and then increment it. */
-
+  return result;
+}
 
 
 /*Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. An example of the sentence:
