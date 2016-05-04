@@ -125,7 +125,7 @@ function findNumbers(number) {
   }
   */
 
-  var list2 = [undefined, 10, 14, null, "Web Development", "Your Name", true, 13, false, undefined]
+  var list2 = [undefined, 10, 14, null, "Web Development", "Your Name", true, 13, false, undefined];
 
   function dataOccurence(list2) {
     var object = {
@@ -135,16 +135,16 @@ function findNumbers(number) {
       "string": 0,
       "undefined": 0,
     };
-    for (var i = 0; i < list.length; i++) {
-      if (typeof list[i] === "boolean") {
+    for (var i = 0; i < list2.length; i++) {
+      if (typeof list2[i] === "boolean") {
         object["boolean"]++;
-      } else if (typeof list[i] === "number") {
+      } else if (typeof list2[i] === "number") {
         object["number"]++;
-      } else if (typeof list[i] === "null") {
+      } else if (typeof list2[i] === "null") {
         object["null"]++;
-      } else if (typeof list[i] === "string") {
+      } else if (typeof list2[i] === "string") {
         object["string"]++;
-      } else if (typeof list[i] === "undefined") {
+      } else if (typeof list2[i] === "undefined") {
         object["undefined"]++;
       }
     }
@@ -155,9 +155,9 @@ function findNumbers(number) {
 
 So soemthing like this
 
-var data = ['hat', 'cat', 'dog'] => 
+var data = ['hat', 'cat', 'dog'] becomes
 
-{
+var object = {
   'a' : 2,
   'h' : 1,
   't' : 2,
@@ -165,6 +165,31 @@ var data = ['hat', 'cat', 'dog'] =>
   'd' : 1,
   'g' : 1
 } */
+
+var data = ['hat', 'cat', 'dog'];
+
+function letterOccurence(data) {
+  //Object to store the answer
+  var object = {};
+  //Next we convert the array into a string like "hat,cat,dog"
+  var dataString = lowData.toString();
+    //Next we put everything to lower case
+  var lowData = data.toLowerCase();
+  //We need to convert that string into an array of individual letters, and then loop through it and push it into the object. The algorithim will be if the index (the letter) is undefined, push it to the object with a value of 1. If it is defined already, increase that value by one.
+  var dataCharArray = dataString.split('');
+  for (i = 0; i < dataCharArray.length; i++) {
+    if (object["dataCharArray[i]"] === "undefined") {
+      object["dataCharArray[i]"] = 1;
+    } else {
+      object["dataCharArray[i]"]++;
+    }
+  }
+  return object;
+}
+
+/*All wrong ^^ I need to fix this. I was trying to convert array to string. So what I need to do is convert everything to lower case, then I need to loop through the characters of each index of the array and check if it is defined in the object or not and then increment it. */
+
+
 
 /*Write a function that takes in a sentence and then returns an object with the keys as the words and value as number of times that appears. An example of the sentence:
 
